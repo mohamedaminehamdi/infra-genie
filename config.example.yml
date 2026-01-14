@@ -1,0 +1,59 @@
+# Infra-Genie Configuration Example
+# Copy this file to config.yml and customize as needed
+
+# AWS Configuration
+aws:
+  # AWS profile from ~/.aws/credentials (optional)
+  # If not specified, uses default credentials chain
+  profile: null
+  
+  # Default region for single-region scans
+  default_region: us-east-1
+  
+  # Regions to scan when using --regions flag without arguments
+  # Leave empty to scan all regions
+  regions: []
+  # Example:
+  # regions:
+  #   - us-east-1
+  #   - us-west-2
+  #   - eu-west-1
+
+# Scanner Configuration
+scanners:
+  security_groups:
+    # Exclude default VPC security groups from results
+    exclude_default: true
+    
+    # Tags to exclude from scanning (resources with these tags will be ignored)
+    exclude_tags: []
+    # Example:
+    # exclude_tags:
+    #   - Key: Environment
+    #     Value: Production
+    
+    # Security group IDs to always ignore
+    exclude_ids: []
+    # Example:
+    # exclude_ids:
+    #   - sg-12345678
+
+# Output Configuration
+output:
+  # Default output format: cli, csv, json
+  format: cli
+  
+  # Default output file path (optional)
+  # If not specified, outputs to stdout for CLI format
+  file: null
+
+# Performance Configuration
+performance:
+  # Maximum number of parallel region scans
+  max_workers: 10
+  
+  # API request timeout in seconds
+  timeout: 30
+  
+  # Maximum retries for failed API calls
+  max_retries: 3
