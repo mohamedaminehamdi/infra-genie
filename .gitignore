@@ -64,6 +64,10 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 
+# Linters
+.ruff_cache/
+.mypy_cache/
+
 # Logs
 *.log
 logs/
